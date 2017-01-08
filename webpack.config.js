@@ -1,6 +1,8 @@
 const {resolve} = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CheckerPlugin, TsConfigPathsPlugin} = require('awesome-typescript-loader');
+const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
+
 
 // all use relative path
 module.exports = () => {
@@ -17,11 +19,6 @@ module.exports = () => {
         },
         module: {
             loaders: [
-                // {
-                //     test: /\.js$/,
-                //     exclude: /node_modules/,
-                //     loader: 'babel-loader'
-                // },
                 {
                     test: /\.ts$/,
                     loader: 'awesome-typescript-loader',
@@ -35,7 +32,11 @@ module.exports = () => {
                 inject: true,
             }),
             new CheckerPlugin(),
-            new TsConfigPathsPlugin()
+            new TsConfigPathsPlugin(),
+            new NgAnnotatePlugin({
+                add: true
+            })
+
         ]
     }
     return config;
