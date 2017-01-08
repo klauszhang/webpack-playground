@@ -10,14 +10,17 @@ const webpack = require('webpack');
 module.exports = (env) => {
     const config = {
         entry: {
-            app: './src/index.ts',
+            app: [
+                'webpack-dev-server/client?http://localhost:8080/',
+                './src/index.ts'
+            ],
             vendor: [   //<- vendor packages
                 'angular',
                 'angular-material'
             ]
         },
         output: {
-            path: './dist',
+            path: resolve('./dist'),
             filename: '[name].js',
         },
         resolve: {
@@ -56,6 +59,9 @@ module.exports = (env) => {
             // OccurenceOrderPlugin: Assign the module and chunk ids by occurrence count. 
             // https://webpack.github.io/docs/list-of-plugins.html#occurenceorderplugin
             new webpack.optimize.OccurrenceOrderPlugin(),
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.NoErrorsPlugin()
+
 
         ],
         performance: {
@@ -63,7 +69,12 @@ module.exports = (env) => {
              * remove the file oversize warning message when build
              */
             hints: false
+        },
+        devServer: {
+            // inline: true,
+            hot: true
         }
     }
+
     return config;
 }

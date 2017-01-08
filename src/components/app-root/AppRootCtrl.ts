@@ -1,4 +1,5 @@
 export default class AppRootCtrl {
+    public message: string;
     constructor($log) {
         /**
          * for injection, use ng-annotate-webpack-plugin
@@ -6,5 +7,6 @@ export default class AppRootCtrl {
          */
         'ngInject';
         $log.info('hello, injection successful!');
+        this.message = 'hello world123';
     }
 }
