@@ -1,5 +1,6 @@
+/// <reference path="../../app.d.ts" />
+
 import AppRootCtrl from './AppRootCtrl';
-// import * as template from './approot.html';
 
 const template = require('./app-root.html');
 

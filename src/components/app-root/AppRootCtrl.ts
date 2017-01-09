@@ -7,6 +7,6 @@ export default class AppRootCtrl {
          */
         'ngInject';
         $log.info('hello, injection successful!');
-        this.message = 'hello world123';
+        this.message = 'hello 123!!';
     }
 }
