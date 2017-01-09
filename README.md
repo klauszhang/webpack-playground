@@ -4,4 +4,5 @@
 - [x] angular material
 - [x] code split
 - [x] typescript
-- [ ] dev server
+- [x] dev server
+- [x] build and dev config
